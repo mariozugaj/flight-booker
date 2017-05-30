@@ -1,4 +1,6 @@
 class FlightsController < ApplicationController
-  def flights
+  def index
+    @airports = Airport.all
+    @flight_dates = Flight.pluck(:departure_date).map(&:to_date).uniq.sort
   end
 end
