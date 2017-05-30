@@ -1,15 +1,18 @@
-= form_tag flights_path, method: :get
+= form_tag flights_path, method: :get do
   .col.s12.l6
     = label_tag 'Origin'
-    = collection_select :flight, :origin, @airports, :id, :code
+    = collection_select :flight, :origin, @airports, :id, :code,
+                        selected: '' || params[:flight][:origin]
   .col.s12.l6
     = label_tag 'Destination'
-    = collection_select :flight, :destination, @airports, :id, :code
+    = collection_select :flight, :destination, @airports, :id, :code,
+                        selected: '' || params[:flight][:destination]
   .col.s12.l6
     = label_tag 'Date'
-    = select :flight, :departure_date, @flight_dates
+    = select :flight, :departure_date, @flight_dates,
+             selected: '' || params[:flight][:departure_date]
   .col.s12.l6
     = label_tag 'Passengers'
-    = select_tag :seats, options_for_select(1..4)
-  .col.s4.offset-s4
+    = select_tag :seats, options_for_select(1..4, params[:seats])
+  .col.s4.offset-s5
     = submit_tag 'Search', class: 'waves-effect waves-light btn-large'

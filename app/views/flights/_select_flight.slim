@@ -1,0 +1,23 @@
+h3.center-align Select flight
+ul.collection
+  - @flights.each do |flight|
+    a[href='/about']
+      li.collection-item.avatar
+        i.material-icons.circle.green flight_takeoff
+        div.valign-wrapper
+          span.title = flight.origin.code
+          i.material-icons trending_flat
+          span.title = flight.destination.code
+        p 
+        | Date: 
+        = flight.view_date
+        br
+        | Time: 
+        = flight.view_time
+        br
+        | Duration: 
+        = flight.view_duration
+        br
+        | Price: 
+        = flight.price
+        |  EUR

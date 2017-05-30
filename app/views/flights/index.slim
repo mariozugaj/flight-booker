@@ -6,5 +6,10 @@
         .row
           .col.s12
             = render 'form'
-                  
-                
+      
+      - unless @flights.nil?
+        .card-panel
+          = render 'select_flight'
+      
+
+     
