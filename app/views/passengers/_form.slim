@@ -1,0 +1,12 @@
+li.collection-item
+  h5 Passenger #{p.index + 1}
+  .row
+    .col.s12.l6
+      = p.label :first_name
+      = p.text_field :first_name
+    .col.s12.l6
+      = p.label :last_name
+      = p.text_field :last_name
+    .col.s12.l6
+      = p.label :email
+      = p.email_field :email

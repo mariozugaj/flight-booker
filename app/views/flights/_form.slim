@@ -14,5 +14,5 @@
   .col.s12.l6
     = label_tag 'Passengers'
     = select_tag :seats, options_for_select(1..4, params[:seats])
-  .col.s4.offset-s5
+  .col.s4.offset-s3.offset-m4.offset-l5
     = submit_tag 'Search', class: 'waves-effect waves-light btn-large'

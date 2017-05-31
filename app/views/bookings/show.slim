@@ -1,0 +1,9 @@
+.container
+  .row
+    .col.s12
+      h3.center-align Your booking
+      ul.collection
+        = render 'flights/flight', flight: @flight
+      h4.center-align Passengers
+      ul.collection
+        = render @passengers

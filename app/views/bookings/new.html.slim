@@ -1,2 +1,15 @@
-h1 Bookings#new
-p Find me in app/views/bookings/new.html.slim
+.container
+  .row
+    .col.s12
+      h3.center-align Booking info
+      ul.collection
+        = render 'flights/flight', flight: @flight
+      h4.center-align Passengers info
+      = form_for @booking do |f|
+        = f.hidden_field :flight_id
+        ul.collection
+          = f.fields_for :passengers do |p|
+            = render 'passengers/form', p: p
+        .row
+          .col.s4.offset-s3.offset-m4.offset-l5
+            = f.submit 'Buy tickets', class: 'waves-effect waves-light btn-large'
