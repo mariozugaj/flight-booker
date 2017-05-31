@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530140152) do
+ActiveRecord::Schema.define(version: 20170531090812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20170530140152) do
     t.index ["code"], name: "index_airports_on_code", using: :btree
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flight_id"], name: "index_bookings_on_flight_id", using: :btree
+  end
+
   create_table "flights", force: :cascade do |t|
     t.integer  "origin_id"
     t.integer  "destination_id"
@@ -30,6 +37,16 @@ ActiveRecord::Schema.define(version: 20170530140152) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "price"
+  end
+
+  create_table "passengers", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.integer  "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_passengers_on_booking_id", using: :btree
   end
 
 end

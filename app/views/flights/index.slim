@@ -5,11 +5,6 @@
         h3.center-align Search for flights
         .row
           .col.s12
-            = render 'form'
-      
-      - unless @flights.nil?
-        .card-panel
-          = render 'select_flight'
-      
-
-     
+            = render 'form'    
+      .select_flight.card-panel[style='display: none']
+      .book_flight.card-panel[style='display: none']

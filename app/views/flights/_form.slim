@@ -1,16 +1,16 @@
-= form_tag flights_path, method: :get do
+= form_tag flights_path, method: :get, remote: true
   .col.s12.l6
     = label_tag 'Origin'
     = collection_select :flight, :origin, @airports, :id, :code,
-                        selected: '' || params[:flight][:origin]
+                        selected: params.dig(:flight, :origin)
   .col.s12.l6
     = label_tag 'Destination'
     = collection_select :flight, :destination, @airports, :id, :code,
-                        selected: '' || params[:flight][:destination]
+                        selected: params.dig(:flight, :destination)
   .col.s12.l6
     = label_tag 'Date'
     = select :flight, :departure_date, @flight_dates,
-             selected: '' || params[:flight][:departure_date]
+             selected: params.dig(:flight, :departure_date)
   .col.s12.l6
     = label_tag 'Passengers'
     = select_tag :seats, options_for_select(1..4, params[:seats])

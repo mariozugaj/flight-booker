@@ -1,23 +1,33 @@
-h3.center-align Select flight
-ul.collection
-  - @flights.each do |flight|
-    a[href='/about']
-      li.collection-item.avatar
-        i.material-icons.circle.green flight_takeoff
-        div.valign-wrapper
-          span.title = flight.origin.code
-          i.material-icons trending_flat
-          span.title = flight.destination.code
-        p 
-        | Date: 
-        = flight.view_date
-        br
-        | Time: 
-        = flight.view_time
-        br
-        | Duration: 
-        = flight.view_duration
-        br
-        | Price: 
-        = flight.price
-        |  EUR
+- if @flights.any?
+  h3.center-align Select flight
+  = form_tag bookings_new_path, method: :get,
+                                remote: true,
+                                class: 'row',
+                                id: 'select_flight_form' do
+    = hidden_field_tag :seats, params[:seats]
+    ul.collection
+      - @flights.each do |flight|
+        li.collection-item.avatar[style='cursor: pointer;']
+          = radio_button_tag :flight_id, flight.id, false
+          i.material-icons.circle.cyan.darken-3 flight_takeoff
+          div.valign-wrapper
+            h6.title = flight.origin.code
+            i.material-icons trending_flat
+            h6.title = flight.destination.code
+          p 
+            | Date: 
+            = flight.view_date
+          p 
+            | Time: 
+            = flight.view_time
+          p 
+            | Duration: 
+            = flight.view_duration
+          h5.secondary-content
+            = flight.view_price
+    .col.s4.offset-s5
+      = submit_tag 'Book flight',
+                   class: 'waves-effect waves-light btn-large center-align',
+                   id: 'select_flight_button'
+- else
+  h5 No flights found for that criteria. Search again?
