@@ -4,6 +4,8 @@
       h3.center-align Your booking
       ul.collection
         = render 'flights/flight', flight: @flight
+      .col.s12
+        h5.secondary-content= "Total: #{@flight.price * @passengers.count} EUR"
       h4.center-align Passengers
       ul.collection
         = render @passengers

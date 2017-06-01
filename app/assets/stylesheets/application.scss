@@ -1,5 +1,25 @@
 @import "materialize/components/color";
 $primary-color: color('cyan', 'darken-3') !default;
 $secondary-color: color("red", "lighten-1") !default;
+$success-color: color("teal", "accent-3") !default;
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+.flash-container {
+  width: 100%;
+  text-align: center;
+}
+
+.alert {
+  height: 100%;
+  padding: 0.6rem 0;
+  color: white;
+}
+
+.flash-alert {
+  background-color: $secondary-color;
+}
+
+.flash-success {
+  background-color: $success-color;
+}

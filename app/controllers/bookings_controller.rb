@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.includes(:passengers).find(params[:id])
+    @booking = Booking.find(params[:id])
     @flight = Flight.find_by_id(@booking.flight_id).decorate
     @passengers = @booking.passengers.decorate
   end
@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     else
       Rails.logger.info(@booking.errors.inspect)
       flash[:danger] = 'Booking was unsuccessful'
-      render :new
+      render 'new'
     end
   end
 

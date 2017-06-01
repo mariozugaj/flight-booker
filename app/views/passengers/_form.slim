@@ -3,10 +3,10 @@ li.collection-item
   .row
     .col.s12.l6
       = p.label :first_name
-      = p.text_field :first_name
+      = p.text_field :first_name, required: true
     .col.s12.l6
       = p.label :last_name
-      = p.text_field :last_name
+      = p.text_field :last_name, required: true
     .col.s12.l6
       = p.label :email
-      = p.email_field :email
+      = p.email_field :email, required: true
