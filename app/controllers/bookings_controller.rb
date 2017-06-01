@@ -12,8 +12,8 @@ class BookingsController < ApplicationController
   def new
     @flight = Flight.find_by_id(params[:flight_id]).decorate
     @booking = @flight.bookings.build
-    seats = params[:seats].to_i
-    seats.times { @booking.passengers.build }
+    @seats = params[:seats].to_i
+    @seats.times { @booking.passengers.build }
   end
 
   def create

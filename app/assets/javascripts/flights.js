@@ -20,14 +20,9 @@ $(document).on('turbolinks:load', function () {
     $('select').material_select();
   });
 
-  // Disables selected destination from origin
-  $('#flight_destination').on('change', function () {
-
-    var $thisValue = $(this).val();
-
-    $('#flight_origin option[disabled]').attr('disabled', false);
-    $('#flight_origin option[value=' + $thisValue + ']').attr('disabled', 'disabled');
-    $('select').material_select();
+  // Show spinner on submit click
+  $("input[type='submit']").on('click', function () {
+    $('#spinner').css('visibility', 'visible');
   });
 });
 
@@ -35,6 +30,5 @@ $(document).on('turbolinks:load', function () {
 function disableFirstDestination() {
   $('#flight_destination option:selected').attr('disabled', 'disabled');
   $('#flight_destination').prop('selectedIndex', 1);
-  $("#flight_origin option[value='2']").attr('disabled', 'disabled');
   $('select').material_select();
 }
