@@ -35,5 +35,6 @@ $(document).on('turbolinks:load', function () {
 function disableFirstDestination() {
   $('#flight_destination option:selected').attr('disabled', 'disabled');
   $('#flight_destination').prop('selectedIndex', 1);
+  $("#flight_origin option[value='2']").attr('disabled', 'disabled');
   $('select').material_select();
 }
