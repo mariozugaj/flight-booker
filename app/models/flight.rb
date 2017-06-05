@@ -4,6 +4,8 @@ class Flight < ApplicationRecord
   has_many :bookings
   has_many :passengers, through: :bookings
 
+  default_scope { order(price: :asc) }
+
   def self.search(origin, destination, date)
     where("origin_id = ? AND
            destination_id = ? AND

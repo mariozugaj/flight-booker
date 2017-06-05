@@ -11,5 +11,6 @@ module FlightBooker
     config.generators do |g|
       g.template_engine :slim
     end
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end

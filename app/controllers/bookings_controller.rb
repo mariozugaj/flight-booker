@@ -20,6 +20,9 @@ class BookingsController < ApplicationController
     @flight = Flight.find_by_id(params[:booking][:flight_id]).decorate
     @booking = @flight.bookings.build(booking_params)
     if @booking.save
+      @booking.passengers.each do |passenger|
+        PassengerMailer.booking_confirmation(passenger, @booking).deliver_now!
+      end
       flash[:success] = 'You successfuly bought tickets!'
       redirect_to @booking
     else
