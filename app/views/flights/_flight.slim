@@ -2,13 +2,9 @@ li.collection-item.avatar[style='cursor: pointer;']
   = radio_button_tag :flight_id, flight.id, false
   i.material-icons.circle.cyan.darken-3 flight_takeoff
   div.valign-wrapper
-    h6.title = flight.origin.code
+    h6.title = "#{flight.origin.city} (#{flight.origin.code})"
     i.material-icons trending_flat
-    h6.title = flight.destination.code
-    h6.title
-      | &nbsp; (
-      = flight.id
-      | )
+    h6.title = "#{flight.destination.city} (#{flight.destination.code})"
   p 
     | Date: 
     = flight.view_date

@@ -1,11 +1,11 @@
 = form_tag flights_path, method: :get, remote: true
   .col.s12.l6
     = label_tag 'Origin'
-    = collection_select :flight, :origin, @airports, :id, :code,
+    = collection_select :flight, :origin, @airports, :id, :city,
                         selected: params.dig(:flight, :origin)
   .col.s12.l6
     = label_tag 'Destination'
-    = collection_select :flight, :destination, @airports, :id, :code,
+    = collection_select :flight, :destination, @airports, :id, :city,
                         selected: params.dig(:flight, :destination)
   .col.s12.l6
     = label_tag 'Date'

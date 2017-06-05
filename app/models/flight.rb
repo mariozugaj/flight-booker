@@ -6,6 +6,8 @@ class Flight < ApplicationRecord
 
   default_scope { order(price: :asc) }
 
+  validates_uniqueness_of :id
+
   def self.search(origin, destination, date)
     where("origin_id = ? AND
            destination_id = ? AND
