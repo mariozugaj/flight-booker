@@ -1,24 +1,19 @@
-# README
+# Flight booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Flight booker is a one-way flight booking application developed to learn advanced forms in Ruby on Rails.
 
-Things you may want to cover:
+### Features
 
-* Ruby version
+* Enter desired dates / airports and click "Search"
+* Choose from among a list of eligible flights
+* Enter passenger information for all passengers
+* Buy tickets
+* Receive confirmation email with flight details
 
-* System dependencies
+### Technical notes
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Backend written using Ruby on Rails
+* Styled usind Materialize CSS framework
+* Frontend interactions written in Javascript
+* Confirmation email sent using SendGrid
+* Using Draper to decorate flight and passenger info
